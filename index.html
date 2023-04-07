@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FRQ - Join Session</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+  <link rel="icon" href="logo.png">
+</head>
+
+<body id="body">
+  <script src="connect.js"></script>
+  <!-- Navigation links-->
+  <nav class="navigation">
+    <button>
+      <a href="index.html">Connect to Session</a>  
+    </button>
+    <button>
+      <a href="start.html">Start a Session</a>
+    </button>
+  </nav>
+
+  <!-- Title -->
+  <div class="title">
+    <h1 class="title-header">FRQ Cooperation Tool</h1>
+    <p class="title-paragraph" id="paragraph">
+    A tool for collaborating on AP FRQ documents. Not supported by the College Board. Created by Michael Dalva.
+  </p>
+  </div>
+  <div id ="message" class="subtitle">
+    <p>
+      Enter the session code to get started.
+    </p>
+  </div>
+
+  <div style="text-align: center;">
+    <textarea id="sessionID_textarea"></textarea>
+    <button id="sessionID_submitBtn" onclick="sendSessionID()">Submit Session ID</button>
+  </div>
+</body>
+
+</html>

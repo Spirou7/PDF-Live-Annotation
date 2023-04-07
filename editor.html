@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FRQ - Editor</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+  <link rel="icon" href="logo.png">
+</head>
+
+<body id="body">
+  <script src="draw.js"></script>
+  <script src="bubble.js"></script>
+  <script src="script.js"></script>
+  <!-- Navigation links-->
+  <nav class="navigation">
+    <button>
+      <a href="index.html">Connect to Session</a>  
+    </button>
+    <button>
+      <a href="start.html">Start a Session</a>
+    </button>
+  </nav>
+
+  <!-- Title -->
+  <div class="title">
+    <h1 class="title-header">FRQ Cooperation Tool</h1>
+    <p class="title-paragraph" id="paragraph">A tool for collaborating on AP FRQ documents. Not supported by the College Board. Created by Michael Dalva.</p>
+    <div id="sessionID" style="position:absolute; top:65px; left:0px;">Session ID:</div>
+  </div>
+  <div class="subtitle">
+    <p>
+      Click "Create Bubble" to add a new bubble to the document. Drag, click, and modify bubbles to your liking, and click submit to save the changes made to the selected bubble.
+    </p>
+  </div>
+
+  <!-- The buttons used for saving and loading content-->
+  <div style="float:right;padding: 20px 20px;position:-webkit-sticky">
+    <button class="drawBtn" onclick="setDraw(true)">Draw</button>
+    <button class="drawBtn" onclick="setDraw(false)">Erase</button>
+    <button class="submitBtn" onclick="updateCurrentBubble(false)">Submit</button>
+    <button class="submitBtn" onclick="loadEdits()">Load</button>
+  </div>
+  <div style="padding: 20px 20px;">
+    <button class="submitBtn" onclick="previousPage()">Previous Pg.</button>
+    <button class="drawBtn" onclick="newBubble(0.5,0.5)">Create Bubble</button>
+    <button class="drawBtn" onclick="deleteCurrentBubble()">Delete Bubble</button>
+    <button class="submitBtn" onclick="nextPage()">Next Pg.</button>
+  </div>
+
+  <!-- The text area where the user creates edits-->
+  <div class="flex-container">
+    <div class="flex-child">
+      <canvas id="pdf_renderer" style="border: 1px solid black;width:100%;height:100%;"></canvas>
+</object>
+      
+    </div>
+
+    <div class="flex-child">
+      <div onload="drawLoad()" id="myCanvasContainer" style="width:100%; height:50%;">
+        <canvas id="myCanvas" mousemove="continueDrawing"></canvas>
+      </div>
+      <div style="width: 100%; height:50%">
+        <textarea id="textArea"></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
